@@ -12,7 +12,7 @@ import proy.backend.proyClients.service.SmClienteService;
 @CrossOrigin
 @RequestMapping("/api/clientes")
 @RestController
-@PreAuthorize("dennyAll()")
+//@PreAuthorize("dennyAll()")
 public class SmClienteController {
 
     private final SmClienteService smClienteService;
@@ -23,21 +23,21 @@ public class SmClienteController {
 
     // GET - LISTAR TODOS LOS CLIENTES
     @GetMapping
-    @PreAuthorize("hasAuthority('UPDATE') or hasAuthority('READ') or hasAuthority('DELETE') or hasAuthority('CREATE')")
+    //@PreAuthorize("hasAuthority('UPDATE') or hasAuthority('READ') or hasAuthority('DELETE') or hasAuthority('CREATE')")
     ResponseEntity<Iterable<SmCliente>> list() {
         return ResponseEntity.status(HttpStatus.OK).body(smClienteService.findAll());
     }
 
     // GET - BUSCAR POR ID DEL CLIENTE
     @GetMapping("/{id}")
-    @PreAuthorize("hasAuthority('UPDATE') or hasAuthority('READ') or hasAuthority('DELETE') or hasAuthority('CREATE')")
+    //@PreAuthorize("hasAuthority('UPDATE') or hasAuthority('READ') or hasAuthority('DELETE') or hasAuthority('CREATE')")
     public ResponseEntity<SmCliente> get(@PathVariable Integer id){
         return ResponseEntity.status(HttpStatus.OK).body(smClienteService.findById(id));
     }
 
-
+    // POST - CREAT CLIENTE
     @PostMapping
-    @PreAuthorize("hasAuthority('UPDATE') or hasAuthority('READ') or hasAuthority('DELETE') or hasAuthority('CREATE')")
+    //@PreAuthorize("hasAuthority('UPDATE') or hasAuthority('READ') or hasAuthority('DELETE') or hasAuthority('CREATE')")
     public ResponseEntity<SmCliente> createCliente(@RequestBody @Valid SmClienteDto clienteDto) {
         SmCliente nuevoCliente = smClienteService.createCliente(clienteDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(nuevoCliente);
@@ -45,7 +45,7 @@ public class SmClienteController {
 
     // PUT - ACTUALIZAR CLIENTE POR ID
     @PutMapping("/{id}")
-    @PreAuthorize("hasAuthority('UPDATE') or hasAuthority('READ') or hasAuthority('DELETE') or hasAuthority('CREATE')")
+    //@PreAuthorize("hasAuthority('UPDATE') or hasAuthority('READ') or hasAuthority('DELETE') or hasAuthority('CREATE')")
     public ResponseEntity<SmCliente> updateCliente(@PathVariable Integer id, @RequestBody @Valid SmClienteDto clienteDto) {
         SmCliente clienteActualizado = smClienteService.updateCliente(id, clienteDto);
         return ResponseEntity.ok(clienteActualizado);
@@ -54,7 +54,7 @@ public class SmClienteController {
     // DETELE - ELIMINAR CLIENTE POR ID
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("{id}")
-    @PreAuthorize("hasAuthority('UPDATE') or hasAuthority('READ') or hasAuthority('DELETE') or hasAuthority('CREATE')")
+    //@PreAuthorize("hasAuthority('UPDATE') or hasAuthority('READ') or hasAuthority('DELETE') or hasAuthority('CREATE')")
     public void delete(@PathVariable Integer id){
         smClienteService.delete(id);
     }

@@ -4,12 +4,12 @@ import jakarta.validation.constraints.NotNull;
 public class SmClienteDto {
 
     private Integer idEntidad;
-    private Integer idTipoDocumento;
+    private SmDocumentoDto tipoDocumento;
     @NotNull(message = "El tipo de documento es obligatorio")
     private String nroDocumento;
     private String razonSocial;
     private String nombreComercial;
-    private Integer idTipoContribuyente;
+    private SmContribuyenteDto tipoContribuyente;
     private String direccion;
     private String telefono;
     private Boolean estado;
@@ -22,12 +22,12 @@ public class SmClienteDto {
         this.idEntidad = idEntidad;
     }
 
-    public Integer getIdTipoDocumento() {
-        return idTipoDocumento;
+    public SmDocumentoDto getTipoDocumento() {
+        return tipoDocumento;
     }
 
-    public void setIdTipoDocumento(Integer idTipoDocumento) {
-        this.idTipoDocumento = idTipoDocumento;
+    public void setTipoDocumento(SmDocumentoDto tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
     }
 
     public String getNroDocumento() {
@@ -54,12 +54,12 @@ public class SmClienteDto {
         this.nombreComercial = nombreComercial;
     }
 
-    public Integer getIdTipoContribuyente() {
-        return idTipoContribuyente;
+    public SmContribuyenteDto getTipoContribuyente() {
+        return tipoContribuyente;
     }
 
-    public void setIdTipoContribuyente(Integer idTipoContribuyente) {
-        this.idTipoContribuyente = idTipoContribuyente;
+    public void setTipoContribuyente(SmContribuyenteDto tipoContribuyente) {
+        this.tipoContribuyente = tipoContribuyente;
     }
 
     public String getDireccion() {

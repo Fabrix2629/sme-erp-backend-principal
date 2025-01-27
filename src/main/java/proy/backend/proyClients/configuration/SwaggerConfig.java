@@ -21,9 +21,6 @@ import javax.naming.Name;
                 contact = @Contact(
                         name = "Fabrisio Abdy Olivares Cuya",
                         email = "fabtisio123@gmail.com"
-                ),
-                license = @License(
-                        name = "Standard Software Use License for Abdyvares"
                 )
         ),
         servers = {
@@ -31,21 +28,7 @@ import javax.naming.Name;
                         description = "DEV SERVER",
                         url = "http://localhost:8080"
                 )
-        },
-        security= @SecurityRequirement(
-                name= "Security Tocken"
-        )
-)
-@SecurityScheme(
-        name = "Security Tocken",
-        description = "Acces Token For My API",
-        type = SecuritySchemeType.HTTP,
-        paramName = HttpHeaders.AUTHORIZATION,
-        in = SecuritySchemeIn.HEADER,
-        scheme = "bearer",
-        bearerFormat = "JWT"
-
-
+        }
 )
 public class SwaggerConfig {
 }

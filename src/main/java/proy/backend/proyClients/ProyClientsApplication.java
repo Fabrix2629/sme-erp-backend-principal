@@ -19,6 +19,7 @@ public class ProyClientsApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ProyClientsApplication.class, args);
 	}
+
 	@Bean
 	CommandLineRunner init(UserRepository userRepository) {
 		return args -> {
@@ -44,6 +45,7 @@ public class ProyClientsApplication {
 					.build();
 
 			/* Create ROLES */
+
 			RoleEntity roleAdmin = RoleEntity.builder()
 					.rolEnum(RoleEnum.ADMIN)
 					.permisionEntities(Set.of(createPermission, readPermission, updatePermission, deletePermission))
@@ -64,7 +66,7 @@ public class ProyClientsApplication {
 					.permisionEntities(Set.of(createPermission, readPermission, updatePermission, deletePermission, refactorPermission))
 					.build();
 
-			/* CREATE USERS */
+
 			UserEntity userEdgar = UserEntity.builder()
 					.username("Edgar")
 					.password("$2a$10$yfxOE06YjmRUZB3I1JJYlOOiDaLsRFbNd2cDvE263mm19YFduPFnK")
@@ -108,4 +110,6 @@ public class ProyClientsApplication {
 			userRepository.saveAll(List.of(userEdgar, userFabrisio, userFreddy, userInvitado));
 		};
 	}
+
+
 }

@@ -43,11 +43,11 @@ public class SmClienteService {
     }
 
     public SmCliente createCliente(SmClienteDto clienteDto) {
-        SmDocumento documento = smDocumentoRepository.findById(clienteDto.getIdTipoDocumento()).orElse(null);
-        SmContribuyente contribuyente = smContribuyenteRepository.findById(clienteDto.getIdTipoContribuyente()).orElse(null);
+        SmDocumento documento = smDocumentoRepository.findById(clienteDto.getTipoDocumento().getIdTipoDocumento()).orElse(null);
+        SmContribuyente contribuyente = smContribuyenteRepository.findById(clienteDto.getTipoContribuyente().getIdTipoContribuyente()).orElse(null);
         SmCliente cliente = new SmCliente();
 
-        cliente.setIdEntidad(clienteDto.getIdEntidad());
+        //cliente.setIdEntidad(clienteDto.getIdEntidad());
         cliente.setNroDocumento(clienteDto.getNroDocumento());
         cliente.setRazonSocial(clienteDto.getRazonSocial());
         cliente.setNombreComercial(clienteDto.getNombreComercial());
@@ -63,13 +63,13 @@ public class SmClienteService {
 
         SmCliente cliente = smClienteRepository.findById(id).orElse(null);
 
-        if (clienteDto.getIdTipoDocumento() != null) {
-            SmDocumento documento = smDocumentoRepository.findById(clienteDto.getIdTipoDocumento()).orElse(null);
+        if (clienteDto.getTipoDocumento().getIdTipoDocumento() != null) {
+            SmDocumento documento = smDocumentoRepository.findById(clienteDto.getTipoDocumento().getIdTipoDocumento()).orElse(null);
             cliente.setTipoDocumento(documento);
         }
 
-        if (clienteDto.getIdTipoContribuyente() != null) {
-            SmContribuyente contribuyente = smContribuyenteRepository.findById(clienteDto.getIdTipoContribuyente()).orElse(null);
+        if (clienteDto.getTipoContribuyente().getIdTipoContribuyente() != null) {
+            SmContribuyente contribuyente = smContribuyenteRepository.findById(clienteDto.getTipoContribuyente().getIdTipoContribuyente()).orElse(null);
             cliente.setTipoContribuyente(contribuyente);
         }
 

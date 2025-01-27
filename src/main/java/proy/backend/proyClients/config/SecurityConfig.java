@@ -13,9 +13,11 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
 import org.springframework.security.web.SecurityFilterChain;
 import proy.backend.proyClients.service.UserDetailServiceImpl;
 
@@ -33,30 +35,19 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .httpBasic(Customizer.withDefaults())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                /*
                 .authorizeHttpRequests(htpp->{
                     // ENDPOINTS PUBLICO
                     htpp.requestMatchers(HttpMethod.GET,"/api/clientes").permitAll();
-
+                    htpp.requestMatchers(HttpMethod.GET,"/api/contribuyentes").permitAll();
                     // ENDPOINTS PRIVADO
-                    htpp.requestMatchers(HttpMethod.GET,"/api/clientes/{id}").hasAnyAuthority("READ","ADMIN","DEVELOPER");
-
+                    htpp.requestMatchers(HttpMethod.GET,"/api/clientes/{id}").permitAll();
                     // ENDPOINTS NO ESPECIFICADOS
-                    htpp.anyRequest().denyAll()
                     ;
                 })
+                */
                 .build();
     }
-
-    /*
-     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
-        return  httpSecurity
-                .csrf(csrf -> csrf.disable())
-                .httpBasic(Customizer.withDefaults())
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .build();
-    }
-    * */
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception{
@@ -76,9 +67,12 @@ public class SecurityConfig {
     }
 
     // METODO PARA PODER ENCRIPTAR CONTRASEÑAS
-    public static void main (String[] args){
+
+     public static void main (String[] args){
         System.out.println(new BCryptPasswordEncoder().encode("1234"));
     }
+
+
 
 
 }
