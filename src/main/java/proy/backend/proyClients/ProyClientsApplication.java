@@ -67,7 +67,7 @@ public class ProyClientsApplication {
 			/* CREATE USERS */
 			UserEntity userEdgar = UserEntity.builder()
 					.username("Edgar")
-					.password("$2a$10$cMY29RPYoIHMJSuwRfoD3eQxU1J5Rww4VnNOUOAEPqCBshkNfrEf6")
+					.password("$2a$10$yfxOE06YjmRUZB3I1JJYlOOiDaLsRFbNd2cDvE263mm19YFduPFnK")
 					.isEnabled(true)
 					.accountNoExpired(true)
 					.accountNoLocked(true)
@@ -77,7 +77,7 @@ public class ProyClientsApplication {
 
 			UserEntity userFabrisio = UserEntity.builder()
 					.username("Fabrisio")
-					.password("$2a$10$cMY29RPYoIHMJSuwRfoD3eQxU1J5Rww4VnNOUOAEPqCBshkNfrEf6")
+					.password("$2a$10$yfxOE06YjmRUZB3I1JJYlOOiDaLsRFbNd2cDvE263mm19YFduPFnK")
 					.isEnabled(true)
 					.accountNoExpired(true)
 					.accountNoLocked(true)
@@ -87,7 +87,7 @@ public class ProyClientsApplication {
 
 			UserEntity userFreddy = UserEntity.builder()
 					.username("Freddy")
-					.password("$2a$10$cMY29RPYoIHMJSuwRfoD3eQxU1J5Rww4VnNOUOAEPqCBshkNfrEf6")
+					.password("$2a$10$yfxOE06YjmRUZB3I1JJYlOOiDaLsRFbNd2cDvE263mm19YFduPFnK")
 					.isEnabled(true)
 					.accountNoExpired(true)
 					.accountNoLocked(true)
@@ -97,7 +97,7 @@ public class ProyClientsApplication {
 
 			UserEntity userInvitado = UserEntity.builder()
 					.username("INVITADO")
-					.password("$2a$10$cMY29RPYoIHMJSuwRfoD3eQxU1J5Rww4VnNOUOAEPqCBshkNfrEf6")
+					.password("$2a$10$yfxOE06YjmRUZB3I1JJYlOOiDaLsRFbNd2cDvE263mm19YFduPFnK")
 					.isEnabled(true)
 					.accountNoExpired(true)
 					.accountNoLocked(true)

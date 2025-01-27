@@ -58,4 +58,5 @@ public class SmClienteController {
     public void delete(@PathVariable Integer id){
         smClienteService.delete(id);
     }
+
 }

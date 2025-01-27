@@ -13,6 +13,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -37,7 +38,7 @@ public class SecurityConfig {
                     htpp.requestMatchers(HttpMethod.GET,"/api/clientes").permitAll();
 
                     // ENDPOINTS PRIVADO
-                    htpp.requestMatchers(HttpMethod.GET,"/api/clientes/{id}").hasAnyAuthority("READ");
+                    htpp.requestMatchers(HttpMethod.GET,"/api/clientes/{id}").hasAnyAuthority("READ","ADMIN","DEVELOPER");
 
                     // ENDPOINTS NO ESPECIFICADOS
                     htpp.anyRequest().denyAll()
@@ -73,4 +74,11 @@ public class SecurityConfig {
     public PasswordEncoder passwordEncoder(){
         return NoOpPasswordEncoder.getInstance();
     }
+
+    // METODO PARA PODER ENCRIPTAR CONTRASEÑAS
+    public static void main (String[] args){
+        System.out.println(new BCryptPasswordEncoder().encode("1234"));
+    }
+
+
 }
